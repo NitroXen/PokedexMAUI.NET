@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:MauiAppMVVM.ViewModels"
+             x:Class="PokedexMAUI.NET.MainPage"
+             BackgroundColor="DarkGray"
+             Title="">
+    <ContentPage.BindingContext>
+        <viewmodel:PokemonViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid RowDefinitions="1*,4*,1*,3*,1*" Margin="30" WidthRequest="{OnPlatform WinUI=500, Android=350, iOS=300}">
+        <Image Grid.Row="0" Source="pokedex_logo.png"/>
+        <Frame Grid.Row="1" BorderColor="LightGray" CornerRadius="30" BackgroundColor="#222">
+            <Image Source="{Binding Sprite}" WidthRequest="150" HeightRequest="150"/>
+        </Frame>
+        <Label Grid.Row="2" HorizontalOptions="Center" Text="{Binding Name}" FontSize="25" TextColor="White" Margin="10"/>
+
+        <Grid Grid.Row="3" ColumnDefinitions=".8*,.2*">
+            <Frame Grid.Column="0" BackgroundColor="White" Padding="10">
+                <Label Text="{Binding Description}" FontSize="14" TextColor="Black" FontAttributes="Bold" />
+            </Frame>
+            
+            <Grid Grid.Column="1" RowDefinitions="*,*" Margin="10">
+
+                <Button Grid.Row="0" BackgroundColor="Black" Text="/\" Command="{Binding IncrementarCommand}" Margin="0,10"/>
+                <Button Grid.Row="1" BackgroundColor="Black" Text="\/" Command="{Binding DecrementarCommand}" Margin="0,10"/>
+            </Grid>
+        </Grid>
+
+        <Button Grid.Row="4" BackgroundColor="Black" Text="Salir" Clicked="Button_Clicked" Margin="10"/>
+
+    </Grid>
+    
+
+</ContentPage>
