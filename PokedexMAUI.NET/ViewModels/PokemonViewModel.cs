@@ -43,7 +43,7 @@ namespace MauiAppMVVM.ViewModels
 
             if (p != null && ps != null)
             {
-                Name =  p.name;
+                Name =  p.id + " : "+  p.name;
                 Sprite = p.sprites.front_default;
 
                 List<string> descipcions = new List<string>();

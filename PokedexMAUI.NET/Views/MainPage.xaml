@@ -23,12 +23,20 @@
             
             <Grid Grid.Column="1" RowDefinitions="*,*" Margin="10">
 
-                <Button Grid.Row="0" BackgroundColor="Black" Text="/\" Command="{Binding IncrementarCommand}" Margin="0,10"/>
-                <Button Grid.Row="1" BackgroundColor="Black" Text="\/" Command="{Binding DecrementarCommand}" Margin="0,10"/>
+                <Button Grid.Row="0" BackgroundColor="{OnPlatform WinUI=White, Android=Gray}" Text="&#x002B;" Command="{Binding IncrementarCommand}" Margin="0,10">
+                    <Button.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="2"/>
+                    </Button.GestureRecognizers>
+                </Button>
+                <Button Grid.Row="1" BackgroundColor="{OnPlatform WinUI=White, Android=Gray}" Text="&#x002D;" Command="{Binding DecrementarCommand}" Margin="0,10">
+                    <Button.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="2"/>
+                    </Button.GestureRecognizers>
+                </Button>
             </Grid>
         </Grid>
 
-        <Button Grid.Row="4" BackgroundColor="Black" Text="Salir" Clicked="Button_Clicked" Margin="10"/>
+        <Button Grid.Row="4" BackgroundColor="{OnPlatform WinUI=White, Android=Gray}" Text="Salir" Clicked="Button_Clicked" Margin="10"/>
 
     </Grid>
     
